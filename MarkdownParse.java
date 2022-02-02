@@ -21,18 +21,18 @@ public class MarkdownParse {
             if(nextOpenBracket == -1) {
                 break;
             }
-            
 
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
             int closeParen = markdown.indexOf(")", openParen);
-            // Fixes test-file3 and test-file4
-            if (closeParen == -1) {
+
+            // For test case 5 (test-file3)
+            if(closeParen == -1) {
                 break;
             }
 
             // For test case 2 (bug for paren inside link)
-            if(closeParen > 0 && markdown.charAt(closeParen - 1) == '(') {
+            if(markdown.charAt(closeParen - 1) == '(') {
                 closeParen = markdown.indexOf(")", closeParen + 1);
             }
 
@@ -57,11 +57,3 @@ public class MarkdownParse {
         System.out.println(links);
     }
 }
-
-/**
- * Tests that don't work:
- * - test-file3.md
- * - test-file4.md
- * - test-file7.md
- * - test-file8.md
- */
