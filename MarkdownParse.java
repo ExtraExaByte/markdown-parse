@@ -12,10 +12,17 @@ public class MarkdownParse {
         // the next )
         int currentIndex = 0;
 
+
+        
         while(currentIndex < markdown.length()) {
             // Flag to keep track of exclamation
             boolean flag = false;
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
+
+            if(markdown.indexOf("(") == -1){
+                break;
+            }
+            
 
             // For test case 1 (bug with text after paren)
             if(nextOpenBracket == -1) {

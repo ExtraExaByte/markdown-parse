@@ -10,7 +10,7 @@ public class MarkdownParseTest {
     @Test
     public void addition() {
         assertEquals(2, 1 + 1);
-        
+
     }
 
     @Test
@@ -37,6 +37,13 @@ public class MarkdownParseTest {
     @Test
     public void testBreakFile3() throws IOException {
         Path fileName = Path.of("break3.md");
+        String contents = Files.readString(fileName);
+        assertEquals(List.of(), MarkdownParse.getLinks(contents));
+    }
+
+    @Test
+    public void testBreakFile5() throws IOException {
+        Path fileName = Path.of("break9.md");
         String contents = Files.readString(fileName);
         assertEquals(List.of(), MarkdownParse.getLinks(contents));
     }
