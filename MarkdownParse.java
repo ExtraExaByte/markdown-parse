@@ -43,11 +43,6 @@ public class MarkdownParse {
                 closeParen = markdown.indexOf(")", closeParen + 1);
             }
 
-            // For test case 3 (bug with image instead of link)
-            if(nextOpenBracket > 0 && markdown.charAt(nextOpenBracket - 1) == '!') {
-                flag = true;
-            }
-
             // For both test case 2 and 3
             if(nextCloseBracket + 1 == openParen && !flag) {
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
