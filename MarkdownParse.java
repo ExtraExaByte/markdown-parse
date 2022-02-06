@@ -16,7 +16,6 @@ public class MarkdownParse {
         
         while(currentIndex < markdown.length()) {
             // Flag to keep track of exclamation
-            boolean flag = false;
             int nextOpenBracket = markdown.indexOf("[", currentIndex);
 
             if(markdown.indexOf("(") == -1){
@@ -43,10 +42,6 @@ public class MarkdownParse {
                 closeParen = markdown.indexOf(")", closeParen + 1);
             }
 
-            // For both test case 2 and 3
-            if(nextCloseBracket + 1 == openParen && !flag) {
-                toReturn.add(markdown.substring(openParen + 1, closeParen));
-            }
 
             currentIndex = closeParen + 1;
         }
