@@ -24,10 +24,6 @@ public class MarkdownParse {
             }
             
 
-            // For test case 1 (bug with text after paren)
-            if(nextOpenBracket == -1) {
-                break;
-            }
 
             int nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             int openParen = markdown.indexOf("(", nextCloseBracket);
